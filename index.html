@@ -10,9 +10,15 @@
   </head>
   <body>
     <div class="imgs">
-      <img src="img/img1.jpg" alt="image1" class="top-section-img show" />
-      <img src="img/img2.jpg" alt="image2" />
-      <img src="img/img3.jpg" alt="image3" />
+      <img
+        src="img/img1.jpg"
+        alt="image1"
+        class="top-section-img show"
+        id="img-1"
+        data-img
+      />
+      <img src="img/img2.jpg" alt="image2" id="img-2" data-img />
+      <img src="img/img3.jpg" alt="image3" id="img-3" data-img />
     </div>
     <section class="top-section full-screen-section">
       <div class="left">
@@ -30,6 +36,7 @@
         The moment you stop growing, you stop truly living. Embrace continuous
         growth as the essence of life.
       </p>
+      <div data-img-to-show="#img-1"></div>
     </section>
     <section class="full-screen-section">
       <h1>Nurturing Personal Development</h1>
@@ -37,6 +44,7 @@
         Every day is an opportunity to take a step forward on the path of
         continuous growth.
       </p>
+      <div data-img-to-show="#img-2"></div>
     </section>
     <section class="full-screen-section">
       <h1>Embracing Continuous Growth</h1>
@@ -44,6 +52,7 @@
         Growth is not a destination; it's a lifelong journey of continuous
         learning and improvement.
       </p>
+      <div data-img-to-show="#img-3"></div>
     </section>
   </body>
 </html>
