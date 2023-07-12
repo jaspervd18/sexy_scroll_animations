@@ -20,6 +20,7 @@ h1 {
   height: 100vh;
   text-align: center;
   padding: 1rem;
+  position: relative;
 }
 
 .top-section .left,
@@ -34,10 +35,6 @@ h1 {
   display: flex;
   text-align: start;
   padding: 0;
-  position: sticky;
-  top: 0;
-  translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / 75);
-  --background-opacity: calc(100% - 1% * min(var(--scroll), 30) * 100 / 30);
 }
 
 .top-section .left {
@@ -45,11 +42,18 @@ h1 {
 }
 
 .top-section .right {
-  background-color: linear-gradient(
+  background: linear-gradient(
     210.65deg,
     rgb(152, 157, 157, var(--background-opacity)) 0%,
     rgb(189, 194, 194, var(--background-opacity)) 100%
   );
+}
+
+.imgs > .top-section-img {
+  /* (oldVal - oldMin) * newRange / oldRange + newMin */
+  --value: min(var(--scroll), 30) * 50 / 30;
+  width: calc(50vw + 1vw * var(--value));
+  transform: translateY(calc(50% - 1% * var(--value)));
 }
 
 @media (width <= 1000px) {
@@ -68,10 +72,22 @@ h1 {
   h1 {
     font-size: 72px;
   }
+
+  .imgs > .top-section-img {
+    width: 100vw;
+  }
 }
 
 :root {
   --scroll: 0;
+}
+
+.top-section {
+  position: sticky;
+  top: 0;
+  /* (oldVal - oldMin) * newRange / oldRange + newMin */
+  translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / 75);
+  --background-opacity: calc(100% - 1% * min(var(--scroll), 30) * 100 / 30);
 }
 
 .first-main-section {
@@ -85,17 +101,17 @@ h1 {
   z-index: 10;
   translate: 0 100%;
   transition: translate 250ms ease-in-out;
-  margin: 0 4rem;
   border-radius: 30px 30px 0 0;
   box-shadow: 0px 0px 10px gray;
+  margin-right: 2rem;
+  margin-left: 2rem;
 }
 
 .imgs > .show {
   translate: 0 0;
 }
 
-.imgs > .top-section-img {
-  --value: min(var(--scroll), 30) * 50 / 30;
-  width: calc(50vw + 1vw * var(--value));
-  translate: ;
+[data-img-to-show] {
+  position: absolute;
+  top: 30%;
 }
