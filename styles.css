@@ -36,7 +36,7 @@ h1 {
   padding: 0;
   position: sticky;
   top: 0;
-  translate: 0 -100%;
+  translate: 0 calc(-1% * (max(var(--scroll), 25) - 25) * 100 / 75);
 }
 
 .top-section .left {
